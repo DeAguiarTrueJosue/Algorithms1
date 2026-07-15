@@ -1,9 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37411.7 d17.14
+VisualStudioVersion = 17.14.37411.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1_IterativeAlgorithms", "1_IterativeAlgorithms\1_IterativeAlgorithms.vcxproj", "{B188687C-2B59-4528-A26A-3F79F3DF9EAA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomLib", "CustomLib\CustomLib.vcxproj", "{3478610B-0F02-41AF-9486-5740E4ACAFD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercises", "Exercises", "{F92B419C-1FED-476A-BCA3-DC62642EA963}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignments", "Assignments", "{7ECD69E2-4AE8-4A1A-9F97-AF1AF3BE4980}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArraysAndVectors", "ArraysAndVectors\ArraysAndVectors.vcxproj", "{0629CEC8-026B-4C99-AEB6-C9763BD44818}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assignment1", "Assignment1\Assignment1.vcxproj", "{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +33,39 @@ Global
 		{B188687C-2B59-4528-A26A-3F79F3DF9EAA}.Release|x64.Build.0 = Release|x64
 		{B188687C-2B59-4528-A26A-3F79F3DF9EAA}.Release|x86.ActiveCfg = Release|Win32
 		{B188687C-2B59-4528-A26A-3F79F3DF9EAA}.Release|x86.Build.0 = Release|Win32
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Debug|x64.ActiveCfg = Debug|x64
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Debug|x64.Build.0 = Debug|x64
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Debug|x86.ActiveCfg = Debug|Win32
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Debug|x86.Build.0 = Debug|Win32
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Release|x64.ActiveCfg = Release|x64
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Release|x64.Build.0 = Release|x64
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Release|x86.ActiveCfg = Release|Win32
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6}.Release|x86.Build.0 = Release|Win32
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Debug|x64.ActiveCfg = Debug|x64
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Debug|x64.Build.0 = Debug|x64
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Debug|x86.ActiveCfg = Debug|Win32
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Debug|x86.Build.0 = Debug|Win32
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Release|x64.ActiveCfg = Release|x64
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Release|x64.Build.0 = Release|x64
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Release|x86.ActiveCfg = Release|Win32
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818}.Release|x86.Build.0 = Release|Win32
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Debug|x64.ActiveCfg = Debug|x64
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Debug|x64.Build.0 = Debug|x64
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Debug|x86.ActiveCfg = Debug|Win32
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Debug|x86.Build.0 = Debug|Win32
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Release|x64.ActiveCfg = Release|x64
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Release|x64.Build.0 = Release|x64
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Release|x86.ActiveCfg = Release|Win32
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B188687C-2B59-4528-A26A-3F79F3DF9EAA} = {F92B419C-1FED-476A-BCA3-DC62642EA963}
+		{3478610B-0F02-41AF-9486-5740E4ACAFD6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{0629CEC8-026B-4C99-AEB6-C9763BD44818} = {F92B419C-1FED-476A-BCA3-DC62642EA963}
+		{881D2DF1-C0E0-48BA-A8FC-1AF37C3680AA} = {7ECD69E2-4AE8-4A1A-9F97-AF1AF3BE4980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D3A530F7-548E-4CF4-BDB1-BBADCEF0B131}

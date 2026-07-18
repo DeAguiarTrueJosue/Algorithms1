@@ -15,19 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h">
+    <ClCompile Include="Assignment2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ItemType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Names.h">
+    <ClInclude Include="Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ContainerIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PriorityQueue.h">
+    <ClInclude Include="StatusType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

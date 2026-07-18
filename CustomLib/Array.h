@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <utility>
+#include "ContainerIterator.h"
 
 template<typename T, size_t N>
 class Array
@@ -59,6 +60,7 @@ public:
 		{
 			mData[i] = other[i];
 		}
+		return *this;
 	}
 
 	Array& operator=(Array<T, N>&& other)
@@ -97,6 +99,12 @@ public:
 		return mData[index];
 	}
 
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator Begin() { return Iterator(mData); }
+	Iterator End() { return Iterator(mData + N); }
+	Const_Iterator Begin() const { return Const_Iterator(mData); }
+	Const_Iterator End() const { return Const_Iterator(mData + N); }
 
 private:
 	T* mData = nullptr;

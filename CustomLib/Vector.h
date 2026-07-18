@@ -2,6 +2,9 @@
 
 #include <cstddef>
 #include <utility>
+#include <cassert>
+
+#include "ContainerIterator.h"
 
 template<typename T>
 class Vector
@@ -55,7 +58,7 @@ public:
 	}
 	Vector(Vector&& other)
 	{
-		mValues = std::move(other.mData);
+		mData = std::move(other.mData);
 		mSize = other.mSize;
 		mCapacity = other.mCapacity;
 		other.mData = nullptr;
@@ -69,7 +72,7 @@ public:
 			delete[] mData;
 			mData = nullptr;
 		}
-		mValues = std::move(other.mData);
+		mData = std::move(other.mData);
 		mSize = other.mSize;
 		mCapacity = other.mCapacity;
 		other.mData = nullptr;
@@ -141,7 +144,7 @@ public:
 	{
 		if (mSize >= mCapacity)
 		{
-			size_t newCapacity = (capacity == 0) ? 8 : mCapacity * 2;
+			size_t newCapacity = (mCapacity == 0) ? 8 : mCapacity * 2;
 			Reserve(newCapacity);
 		}
 		mData[mSize] = value;
@@ -159,6 +162,13 @@ public:
 		assert(index < mSize, "Index out of range");
 		return mData[index];
 	}
+
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator Begin() { return Iterator(mData); }
+	Iterator End() { return Iterator(mData + mSize); }
+	Const_Iterator Begin() const { return Const_Iterator(mData); }
+	Const_Iterator End() const { return Const_Iterator(mData + mSize); }
 
 private:
 	T* mData = nullptr;

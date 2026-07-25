@@ -17,8 +17,8 @@ public:
 public:
 	ContainerIterator(T* ptr) : mPtr(ptr) {};
 
-	T& operator*() { return *mPtr; }
-	T* operator->() { return mPtr; }
+	T& operator*() const { return *mPtr; }
+	T* operator->() const { return mPtr; }
 
 	ContainerIterator& operator++() { ++mPtr; return *this; }
 	ContainerIterator& operator--() { --mPtr; return *this; }
@@ -28,8 +28,8 @@ public:
 	ContainerIterator operator+(difference_type n) const { return ContainerIterator(mPtr + n); }
 	ContainerIterator operator-(difference_type n) const { return ContainerIterator(mPtr - n); }
 
-	ContainerIterator& operator+=(difference_type n) const { mPtr += n; return *this; }
-	ContainerIterator& operator-=(difference_type n) const { mPtr -= n; return *this; }
+	ContainerIterator& operator+=(difference_type n) { mPtr += n; return *this; }
+	ContainerIterator& operator-=(difference_type n) { mPtr -= n; return *this; }
 
 	difference_type operator-(const ContainerIterator& rhs) const { return mPtr - rhs.mPtr; }
 

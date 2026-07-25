@@ -236,6 +236,83 @@ void PrintRange(const Vector2& minRange, const Vector2& maxRange, KDNode* node, 
 	}
 }
 
+float DistanceSquared(const Vector2& a, const Vector2& b)
+{
+	return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+}
+
+KDNode* Closest(KDNode* a, KDNode* b, const Vector2& v)
+{
+	if (a == nullptr)
+	{
+		return b;
+	}
+	if (b == nullptr)
+	{
+		return a;
+	}
+	return DistanceSquared(a->data, v) < DistanceSquared(b->data, v) ? a : b;
+}
+
+KDNode* NearestNeighbor(const Vector2& v, KDNode* node, int dim)
+{
+	if (node == nullptr)
+	{
+		return nullptr;
+	}
+	KDNode* nextBranch = nullptr;
+	KDNode* otherBranch = nullptr;
+
+	int nextDim = (dim + 1) % 2;
+
+	if (dim == 0)
+	{
+		if (v.x < node->data.x)
+		{
+			nextBranch = node->left;
+			otherBranch = node->right;
+		}
+		else
+		{
+			nextBranch = node->right;
+			otherBranch = node->left;
+		}
+	}
+	else
+	{
+		if (v.y < node->data.y)
+		{
+			nextBranch = node->left;
+			otherBranch = node->right;
+		}
+		else
+		{
+			nextBranch = node->right;
+			otherBranch = node->left;
+		}
+	}
+
+	KDNode* temp = NearestNeighbor(v, nextBranch, nextDim);
+	KDNode* best = Closest(temp, node, v);
+
+	float distsqr = DistanceSquared(best->data, v);
+	float planeDist = 0.0f;
+	if (dim == 0)
+	{
+		planeDist = v.x - node->data.x;
+	}
+	else
+	{
+		planeDist = v.y - node->data.y;
+	}
+	if (distsqr >= planeDist * planeDist)
+	{
+		temp = NearestNeighbor(v, otherBranch, nextDim);
+		best = Closest(temp, best, v);
+	}
+	return best;
+}
+
 void Exercise2KDTrees()
 {
 	KDNode* root = nullptr;
@@ -265,6 +342,17 @@ void Exercise2KDTrees()
 	Vector2 minRange{ 30, 30 };
 	Vector2 maxRange{ 70, 70 };
 	PrintRange(minRange, maxRange, root, 0);
+
+	Vector2 value;
+	std::cout << "\nNearest Neighbor\n";
+	std::cout << "Enter x: ";
+	std::cin >> value.x;
+	std::cout << "Enter y: ";
+	std::cin >> value.y;
+
+		KDNode* neighbor = NearestNeighbor(value, root, 0);
+
+	std::cout << "ClosestPoint: x:" << neighbor->data.x << ", y:" << neighbor->data.y;
 
 	DeleteTree(root);
 }

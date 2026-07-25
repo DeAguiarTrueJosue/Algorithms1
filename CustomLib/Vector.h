@@ -163,6 +163,12 @@ public:
 		return mData[index];
 	}
 
+	T operator[](size_t index)const
+	{
+		assert(index < mSize, "Index out of range");
+		return mData[index];
+	}
+
 	using Iterator = ContainerIterator<T>;
 	using Const_Iterator = ContainerIterator<const T>;
 	Iterator Begin() { return Iterator(mData); }

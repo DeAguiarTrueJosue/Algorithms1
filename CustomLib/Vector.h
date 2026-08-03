@@ -177,6 +177,18 @@ public:
 	Const_Iterator End() const { return Const_Iterator(mData + mSize); }
 
 private:
+
+	friend class Queue;
+	void PopFront()
+	{
+		mData[0]->~T();
+		for (size_t i = 0; i < mSize - 1; i++)
+		{
+			mData[i] = mData[i + 1];
+		}
+		--mSize;
+	}
+
 	T* mData = nullptr;
 	size_t mCapacity = 0;
 	size_t mSize = 0;

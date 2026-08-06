@@ -29,7 +29,7 @@ public:
 		if (other.mCapacity > 0)
 		{
 			mData = new T[other.mCapacity];
-			for (size_t i = 0; i < other.mCapacity; i++)
+			for (size_t i = 0; i < other.mSize; i++)
 			{
 				mData[i] = other.mData[i];
 			}

@@ -13,8 +13,8 @@ private:
 	{
 		const T* point = nullptr;
 		const void* userData = nullptr;
-		KDNode* left;
-		KDNode* right;
+		KDNode* left = nullptr;
+		KDNode* right = nullptr;
 	};
 
 public:

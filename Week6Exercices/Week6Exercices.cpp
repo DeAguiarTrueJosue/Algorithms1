@@ -44,7 +44,7 @@ private:
 
 public:
 
-	int HashFunction(const std::string& key)
+	int HashFunctionW6E(const std::string& key)
 	{
 		int hashValue = 0;
 		for (int i = 0; i < key.size(); i++)
@@ -57,7 +57,7 @@ public:
 
 	void InsertTexture(const std::string& filePath)
 	{
-		int arrayIndex = HashFunction(filePath);
+		int arrayIndex = HashFunctionW6E(filePath);
 		Node* tmp = mHashTable[arrayIndex];
 		while (tmp != nullptr)
 		{
@@ -78,7 +78,7 @@ public:
 
 	const Texture* FindTexture(const std::string& filePath)
 	{
-		int arrayIndex = HashFunction(filePath);
+		int arrayIndex = HashFunctionW6E(filePath);
 		Node* foundNode = mHashTable[arrayIndex];
 		while (foundNode != nullptr)
 		{
@@ -93,7 +93,7 @@ public:
 
 	void DeleteTexture(const std::string& filePath)
 	{
-		int arrayIndex = HashFunction(filePath);
+		int arrayIndex = HashFunctionW6E(filePath);
 		Node* node = mHashTable[arrayIndex];
 		Node* prev = nullptr;
 		while (node != nullptr)
@@ -260,5 +260,6 @@ void Exercise4()
 int main()
 {
 	srand(time(NULL));
+	std::cout << "Sorting and Unordermap\n";
 	Exercise4();
 }

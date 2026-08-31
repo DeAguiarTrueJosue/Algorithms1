@@ -46,9 +46,9 @@ public:
 		return false;
 	}
 
-	bool Has(const KeyType& key, ValueType& outValue) const
+	bool Has(const KeyType& key) const
 	{
-		return FindNode(key) != nullptr;
+		return FindNode(mRootNode, key) != nullptr;
 	}
 
 	void ObtainKeys(Vector<KeyType>& outKeys)

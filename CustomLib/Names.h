@@ -20,7 +20,11 @@ const std::string possibleNames[]
 	"Steve",
 	"Sonic",
 	"Piada",
-	"J"
+	"J",
+	"YoMaMa",
+	"Kralho",
+	"WuW",
+	"Hell"
 };
 
 const int namesCount = sizeof(possibleNames) / sizeof(std::string);
@@ -28,4 +32,9 @@ const int namesCount = sizeof(possibleNames) / sizeof(std::string);
 std::string GetRandomName()
 {
 	return possibleNames[rand() % namesCount];
+}
+
+std::string GetRandomName(int max)
+{
+	return possibleNames[rand() % std::min(max, namesCount)];
 }

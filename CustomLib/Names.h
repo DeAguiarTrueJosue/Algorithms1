@@ -1,6 +1,12 @@
 #pragma once
 #include <string>
 #include <cstdlib>
+#include "Map.h"
+
+namespace
+{
+	Map<std::string, int> nameCount;
+}
 
 const std::string possibleNames[]
 {
@@ -31,10 +37,24 @@ const int namesCount = sizeof(possibleNames) / sizeof(std::string);
 
 std::string GetRandomName()
 {
-	return possibleNames[rand() % namesCount];
+	const std::string& chosenName = possibleNames[rand() % namesCount];
+	if (!nameCount.Has(chosenName))
+	{
+		nameCount[chosenName] = 1;
+		return chosenName;
+	}
+	nameCount[chosenName]++;
+	return chosenName + std::to_string(nameCount[chosenName]);
 }
 
 std::string GetRandomName(int max)
 {
-	return possibleNames[rand() % std::min(max, namesCount)];
+	const std::string& chosenName = possibleNames[rand() % std::min(max, namesCount)];
+	if (!nameCount.Has(chosenName))
+	{
+		nameCount[chosenName] = 1;
+		return chosenName;
+	}
+	nameCount[chosenName]++;
+	return chosenName + std::to_string(nameCount[chosenName]);
 }
